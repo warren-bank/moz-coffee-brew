@@ -1,0 +1,100 @@
+content CoffeeBrew chrome/content/
+skin CoffeeBrew cvskin chrome/skin/
+resource cvskin chrome/skin/
+
+overlay chrome://browser/content/browser.xul chrome://CoffeeBrew/content/CoffeeBrew.xul
+
+locale CoffeeBrew ach chrome/locale/ach/
+locale CoffeeBrew af chrome/locale/af/
+locale CoffeeBrew an chrome/locale/an/
+locale CoffeeBrew ar chrome/locale/ar/
+locale CoffeeBrew as chrome/locale/as/
+locale CoffeeBrew ast chrome/locale/ast/
+locale CoffeeBrew be chrome/locale/be/
+locale CoffeeBrew bg chrome/locale/bg/
+locale CoffeeBrew bn-BD chrome/locale/bn-BD/
+locale CoffeeBrew bn-IN chrome/locale/bn-IN/
+locale CoffeeBrew br chrome/locale/br/
+locale CoffeeBrew bs chrome/locale/bs/
+locale CoffeeBrew ca chrome/locale/ca/
+locale CoffeeBrew cs chrome/locale/cs/
+locale CoffeeBrew csb chrome/locale/csb/
+locale CoffeeBrew cy chrome/locale/cy/
+locale CoffeeBrew da chrome/locale/da/
+locale CoffeeBrew de chrome/locale/de/
+locale CoffeeBrew el chrome/locale/el/
+locale CoffeeBrew en-GB chrome/locale/en-GB/
+locale CoffeeBrew en-US chrome/locale/en-US/
+locale CoffeeBrew en-ZA chrome/locale/en-ZA/
+locale CoffeeBrew eo chrome/locale/eo/
+locale CoffeeBrew es-AR chrome/locale/es-AR/
+locale CoffeeBrew es-CL chrome/locale/es-CL/
+locale CoffeeBrew es-ES chrome/locale/es-ES/
+locale CoffeeBrew es-MX chrome/locale/es-MX/
+locale CoffeeBrew et chrome/locale/et/
+locale CoffeeBrew eu chrome/locale/eu/
+locale CoffeeBrew fa chrome/locale/fa/
+locale CoffeeBrew ff chrome/locale/ff/
+locale CoffeeBrew fi chrome/locale/fi/
+locale CoffeeBrew fr chrome/locale/fr/
+locale CoffeeBrew fy-NL chrome/locale/fy-NL/
+locale CoffeeBrew ga-IE chrome/locale/ga-IE/
+locale CoffeeBrew gd chrome/locale/gd/
+locale CoffeeBrew gl chrome/locale/gl/
+locale CoffeeBrew gu-IN chrome/locale/gu-IN/
+locale CoffeeBrew he chrome/locale/he/
+locale CoffeeBrew hi-IN chrome/locale/hi-IN/
+locale CoffeeBrew hr chrome/locale/hr/
+locale CoffeeBrew hu chrome/locale/hu/
+locale CoffeeBrew hy-AM chrome/locale/hy-AM/
+locale CoffeeBrew id chrome/locale/id/
+locale CoffeeBrew is chrome/locale/is/
+locale CoffeeBrew it chrome/locale/it/
+locale CoffeeBrew ja chrome/locale/ja/
+locale CoffeeBrew kk chrome/locale/kk/
+locale CoffeeBrew km chrome/locale/km/
+locale CoffeeBrew kn chrome/locale/kn/
+locale CoffeeBrew ko chrome/locale/ko/
+locale CoffeeBrew ku chrome/locale/ku/
+locale CoffeeBrew lij chrome/locale/lij/
+locale CoffeeBrew lt chrome/locale/lt/
+locale CoffeeBrew lv chrome/locale/lv/
+locale CoffeeBrew mai chrome/locale/mai/
+locale CoffeeBrew mk chrome/locale/mk/
+locale CoffeeBrew ml chrome/locale/ml/
+locale CoffeeBrew mr chrome/locale/mr/
+locale CoffeeBrew ms chrome/locale/ms/
+locale CoffeeBrew nb-NO chrome/locale/nb-NO/
+locale CoffeeBrew nl chrome/locale/nl/
+locale CoffeeBrew nn-NO chrome/locale/nn-NO/
+locale CoffeeBrew or chrome/locale/or/
+locale CoffeeBrew pa-IN chrome/locale/pa-IN/
+locale CoffeeBrew pl chrome/locale/pl/
+locale CoffeeBrew pt-BR chrome/locale/pt-BR/
+locale CoffeeBrew pt-PT chrome/locale/pt-PT/
+locale CoffeeBrew rm chrome/locale/rm/
+locale CoffeeBrew ro chrome/locale/ro/
+locale CoffeeBrew ru chrome/locale/ru/
+locale CoffeeBrew si chrome/locale/si/
+locale CoffeeBrew sk chrome/locale/sk/
+locale CoffeeBrew sl chrome/locale/sl/
+locale CoffeeBrew son chrome/locale/son/
+locale CoffeeBrew sq chrome/locale/sq/
+locale CoffeeBrew sr chrome/locale/sr/
+locale CoffeeBrew sv-SE chrome/locale/sv-SE/
+locale CoffeeBrew ta chrome/locale/ta/
+locale CoffeeBrew te chrome/locale/te/
+locale CoffeeBrew th chrome/locale/th/
+locale CoffeeBrew tr chrome/locale/tr/
+locale CoffeeBrew uk chrome/locale/uk/
+locale CoffeeBrew vi chrome/locale/vi/
+locale CoffeeBrew xh chrome/locale/xh/
+locale CoffeeBrew zh-CN chrome/locale/zh-CN/
+locale CoffeeBrew zh-TW chrome/locale/zh-TW/
+locale CoffeeBrew zu chrome/locale/zu/
+
+component {6fe3242e-c790-4198-813c-682b374967a7} components/plaintext-to-html-stream.js
+contract @mozilla.org/streamconv;1?from=text/plain&to=*/* {6fe3242e-c790-4198-813c-682b374967a7}
+
+component {3263567b-4c6a-434d-b8f7-f661aab4ae92} components/coffeescript-to-html-stream.js
+contract @mozilla.org/streamconv;1?from=text/coffeescript&to=*/* {3263567b-4c6a-434d-b8f7-f661aab4ae92}
