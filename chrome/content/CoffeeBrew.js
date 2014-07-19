@@ -41,63 +41,72 @@ if (!CoffeeBrew) {
 		onPageLoad: function(aEvent) {
 			var self				= CoffeeBrew;
 			var document			= aEvent.originalTarget;
-			var coffeeFileExtension	= /\.coffee?$/;
 			var head, body, cs_code, js_code;
 
-			if (
-					(document.location.protocol.toLowerCase() !== "view-source:")
-				&&	(coffeeFileExtension.test( document.location.pathname.toLowerCase() ))
-			) {
-				document.title		= document.location.pathname.toLowerCase().replace(/^.*\/([^\/]+)\.coffee$/,'$1.js');
-				head				= document.head;
-				body				= document.body;
-				cs_code				= body.textContent;
-				js_code				= CoffeeScript.compile(cs_code);
+			if (document.location.protocol.toLowerCase() === "view-source:"){return;}
 
-				(function(){
-
-					// prefs: syntax_highlighter
-					var highlight = {};
-					highlight.theme		= self.prefs.getCharPref("syntax_highlighter.theme");
-					highlight.enabled	= self.prefs.getBoolPref("syntax_highlighter.enabled");
-					highlight.enabled	= (highlight.enabled && highlight.theme);
-
-					// add css files to head
-					$C({
-						"link_01": {
-							"rel"		: "stylesheet",
-							"type"		: "text/css",
-							"href"		: ("resource://cvskin/CoffeeBrew.css")
-						},
-						"link_02": {
-							"rel"		: "stylesheet",
-							"type"		: "text/css",
-							"href"		: ("resource://cvskin/" + (highlight.enabled? ("highlight_styles/" + highlight.theme.toLowerCase() + ".css") : "highlight_styles_disabled.css"))
-						}
-					}, head, document);
-
-					// empty the body
-					while (body.firstChild) {
-						body.removeChild(body.firstChild);
-					}
-
-					// <pre><code class="js" data-language="javascript">js_code</code></pre>
-					var $pre, $code;
-
-					$pre	= $C({"pre": false}, body, document);
-
-					$code	= $C({"code": {
-									"class"			: "js",
-									"data-language"	: "javascript",
-									"text"			: js_code
-							  }}, $pre, document);
-
-					if (highlight.enabled)
-						hljs.highlightBlock($code);
-
-				})();
-
+			switch( document.contentType.toLowerCase() ){
+				case 'text/plain':
+				case 'text/coffeescript':
+					break;
+				default:
+					return;
 			}
+
+			if (! (/\.coffee$/.test( document.location.pathname.toLowerCase() ))){return;}
+
+			head				= document.head;
+			body				= document.body;
+			cs_code				= body.textContent;
+			try {
+				js_code			= CoffeeScript.compile(cs_code);
+				document.title	= document.location.pathname.toLowerCase().replace(/^.*\/([^\/]+)\.coffee$/,'$1.js');
+			}
+			catch(e){return;}
+
+			(function(){
+
+				// prefs: syntax_highlighter
+				var highlight = {};
+				highlight.theme		= self.prefs.getCharPref("syntax_highlighter.theme");
+				highlight.enabled	= self.prefs.getBoolPref("syntax_highlighter.enabled");
+				highlight.enabled	= (highlight.enabled && highlight.theme);
+
+				// add css files to head
+				$C({
+					"link_01": {
+						"rel"		: "stylesheet",
+						"type"		: "text/css",
+						"href"		: ("resource://cvskin/CoffeeBrew.css")
+					},
+					"link_02": {
+						"rel"		: "stylesheet",
+						"type"		: "text/css",
+						"href"		: ("resource://cvskin/" + (highlight.enabled? ("highlight_styles/" + highlight.theme.toLowerCase() + ".css") : "highlight_styles_disabled.css"))
+					}
+				}, head, document);
+
+				// empty the body
+				while (body.firstChild) {
+					body.removeChild(body.firstChild);
+				}
+
+				// <pre><code class="javascript">js_code</code></pre>
+				var $pre, $code;
+
+				$pre	= $C({"pre": false}, body, document);
+
+				$code	= $C({"code": {
+								"class"			: "javascript",
+								"text"			: js_code
+						  }}, $pre, document);
+
+				if (highlight.enabled){
+					hljs.highlightBlock($code);
+				}
+
+			})();
+
 		}
 	};
 }

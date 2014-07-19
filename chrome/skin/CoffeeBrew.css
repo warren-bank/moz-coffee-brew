@@ -1,6 +1,6 @@
 body,
 body pre,
-body pre code.js {
+body pre code.javascript {
 	display:	block;
 	padding:	0px !important;
 	margin:		0px !important;
@@ -11,6 +11,6 @@ body,
 body pre {
 	overflow:	hidden !important;
 }
-body pre code.js {
+body pre code.javascript {
 	overflow:	auto !important;
 }
