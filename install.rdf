@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 	<Description about="urn:mozilla:install-manifest">
-		<em:id>moz-coffeescript-viewer@warren-bank.github.com</em:id>
+		<em:id>moz-coffee-brew@warren-bank.github.com</em:id>
 		<em:version>1.0</em:version>
 		<em:type>2</em:type>
 
 		<em:name>CoffeeBrew</em:name>
-		<em:description>Browser displays syntax-highlighted JavaScript source code, after performing CoffeeScript -to- JavaScript transcompilation.</em:description>
+		<em:description>Performs CoffeeScript -to- JavaScript transcompilation, and displays the resulting JavaScript source code with syntax highlights.</em:description>
 		<em:creator>Warren Bank</em:creator>
-		<em:homepageURL>https://github.com/warren-bank/moz-coffeescript-viewer</em:homepageURL>
+		<em:homepageURL>https://github.com/warren-bank/moz-coffee-brew</em:homepageURL>
 		<em:optionsType>1</em:optionsType>
 		<em:optionsURL>chrome://CoffeeBrew/content/preferences_window.xul</em:optionsURL>
 		<em:iconURL>chrome://CoffeeBrew/skin/logo-32x32.png</em:iconURL>
@@ -27,7 +27,7 @@
 			<Description>
 				<em:locale>en-US</em:locale>
 				<em:name>CoffeeBrew</em:name>
-				<em:description>Browser displays syntax-highlighted JavaScript source code, after performing CoffeeScript -to- JavaScript transcompilation.</em:description>
+				<em:description>Performs CoffeeScript -to- JavaScript transcompilation, and displays the resulting JavaScript source code with syntax highlights.</em:description>
 				<em:creator>Warren Bank</em:creator>
 			</Description>
 		</em:localized>
