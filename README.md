@@ -8,9 +8,11 @@ after performing CoffeeScript -to- JavaScript transcompilation.
 
 ## Detection methodology
   * the add-on modifies all server responses that satisfy all of the following criteria:
-    * the HTTP header 'content-type' is either: 'text/plain' or 'text/coffeescript'
-    * the document pathname ends with '.coffee'
-    * the document protocol is not 'view-source:'
+    * the HTTP header 'content-type' is either:
+      * 'text/plain'
+      * 'text/coffeescript'
+    * the location protocol is not 'view-source:'
+    * the location pathname ends with '.coffee'
 
 ## User Preferences:
   * syntax highlighting:
