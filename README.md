@@ -2,6 +2,10 @@
 Firefox add-on that displays syntax-highlighted JavaScript source code,
 after performing CoffeeScript -to- JavaScript transcompilation.
 
+## Screenshot
+
+![Side-by-side Comparison](https://raw.githubusercontent.com/warren-bank/moz-coffee-brew/screenshots/01.png)
+
 ## Summary
   * [official](http://coffeescript.org/extras/coffee-script.js) [CoffeeScript compiler](https://github.com/jashkenas/coffeescript/blob/master/extras/coffee-script.js) is used to perform the source-to-source transcompilation
   * [highlight.js](https://github.com/isagalaev/highlight.js) is used to provide syntax highlighting to the resulting JavaScript code
