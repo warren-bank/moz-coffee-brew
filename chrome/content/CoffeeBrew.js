@@ -92,17 +92,51 @@ if (!CoffeeBrew) {
 				}
 
 				// <pre><code class="javascript">js_code</code></pre>
-				var $pre, $code;
+				var $pre;
 
 				$pre	= $C({"pre": false}, body, document);
 
-				$code	= $C({"code": {
-								"class"			: "javascript",
-								"text"			: js_code
-						  }}, $pre, document);
-
 				if (highlight.enabled){
-					hljs.highlightBlock($code);
+					(function(){
+						try {
+							var HTMLParser, $js_dom_tree;
+
+							// add syntax highlighting
+							js_code				= ( hljs.highlight('javascript', js_code, false) ).value;
+
+							// wrap inside a single parent element
+							js_code				= '<code class="hljs javascript">' + js_code + '</div>';
+
+							// parse this string into a DOM structure
+							HTMLParser			= function(aHTMLString){
+								var html,body;
+								html = document.implementation.createDocument("http://www.w3.org/1999/xhtml", "html", null);
+								body = document.createElementNS("http://www.w3.org/1999/xhtml", "body");
+
+								html.documentElement.appendChild(body);
+
+								body.appendChild(
+									Components.classes["@mozilla.org/feed-unescapehtml;1"]
+										.getService(Components.interfaces.nsIScriptableUnescapeHTML)
+										.parseFragment(aHTMLString, false, null, body)
+								);
+								return body;
+							};
+							$js_dom_tree		= (HTMLParser(js_code)).firstChild;
+
+							// attach the DOM structure
+							$pre.appendChild($js_dom_tree);
+						}
+						catch(e){
+							highlight.enabled	= false;
+						}
+					})();
+				}
+				if (! highlight.enabled){
+					$C({"code": {
+							"class"		: "javascript",
+							"text"		: js_code
+					}}, $pre, document);
 				}
 
 			})();
